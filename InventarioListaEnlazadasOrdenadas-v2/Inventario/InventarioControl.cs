@@ -16,27 +16,27 @@ namespace Inventario
         //CONSTRUCTOR DE LA CLASE INVENTARIOCONTROL
         public InventarioControl()
         {
-            this.productInicio = null; 
-            this.productUltimo = null; 
+            this.productInicio = null;
+            this.productUltimo = null;
         }
 
         //---------------------------------------------------------------------------------------------------------------------------------------------------------
         //METODO AGREGAR 
         public void Agregar(Producto productoNuevo)
-            {
+        {
             if (productInicio == null)
             {
                 productInicio = productoNuevo;
                 productUltimo = productoNuevo;
             }
-            else if(productoNuevo.codigo < productInicio.codigo)   //Si el producto nuevo es menor que el producto del inicio se recorre
+            else if (productoNuevo.codigo < productInicio.codigo)   //Si el producto nuevo es menor que el producto del inicio se recorre
             {
                 productInicio.anterior = productoNuevo;
                 productoNuevo.siguiente = productInicio;
                 productInicio = productoNuevo;
 
             }
-            else if(productoNuevo.codigo != productInicio.codigo)
+            else if (productoNuevo.codigo != productInicio.codigo)
                 Agregar(productInicio, productoNuevo);
         }
 
@@ -59,10 +59,10 @@ namespace Inventario
                     Agregar(temp.siguiente, nuevo);
                 }
             }
-            else if(temp.siguiente == null)
+            else if (temp.siguiente == null)
             {
-               if(nuevo.codigo != temp.codigo)
-                nuevo.anterior = temp;
+                if (nuevo.codigo != temp.codigo)
+                    nuevo.anterior = temp;
                 temp.siguiente = nuevo;
                 productUltimo = nuevo;
             }
@@ -74,13 +74,13 @@ namespace Inventario
         {
             if (productInicio != null)
             {
-                if(productInicio.codigo != codigo && productUltimo.codigo != codigo)
+                if (productInicio.codigo != codigo && productUltimo.codigo != codigo)
                 {
                     Producto temp = null;
 
-                    if(productUltimo.codigo / 2 > codigo)
+                    if (productUltimo.codigo / 2 > codigo)
                     {
-                         temp = productInicio;
+                        temp = productInicio;
 
                         while (temp.siguiente != null && temp.siguiente.codigo <= codigo)
                         {
@@ -118,12 +118,12 @@ namespace Inventario
         //METODO BORRAR 
         public void Borrar(int codigo)
         {
-            if(productInicio != null)
+            if (productInicio != null)
             {
-                if(productInicio.codigo != codigo && productUltimo.codigo != codigo)
+                if (productInicio.codigo != codigo && productUltimo.codigo != codigo)
                 {
                     Producto temp = null;
-                    if(productUltimo.codigo / 2 > codigo)
+                    if (productUltimo.codigo / 2 > codigo)
                     {
                         temp = productInicio;
 
@@ -142,7 +142,7 @@ namespace Inventario
                     {
                         temp = productUltimo;
 
-                        while(temp.anterior != null && temp.anterior.codigo >= codigo)
+                        while (temp.anterior != null && temp.anterior.codigo >= codigo)
                         {
                             if (temp.anterior.codigo == codigo)
                             {
@@ -156,12 +156,12 @@ namespace Inventario
                 }
                 else
                 {
-                    if(productInicio.codigo == codigo)
+                    if (productInicio.codigo == codigo)
                     {
                         productInicio = productInicio.siguiente;
                         productInicio.anterior = null;
                     }
-                    else if(productUltimo.codigo == codigo)
+                    else if (productUltimo.codigo == codigo)
                     {
                         productUltimo = productUltimo.anterior;
                         productUltimo.siguiente = null;
