@@ -52,27 +52,6 @@ namespace Inventario
         }
 
         //---------------------------------------------------------------------------------------------------------------------------------------------------------
-        //BUTTON INSERTAR
-        private void bttonInsertar_Click(object sender, EventArgs e)
-        {
-            //Se crea un objeto de la clase producto
-            Producto product = new Producto();
-
-            //Se establecen las caracteristicas del objeto producto
-            product.setCodigo(Convert.ToInt32(txtCodigo.Text));
-            product.setNombre(txtNombre.Text);
-            product.setPrecio(float.Parse(txtPrecio.Text));
-            product.setCantidad(Convert.ToInt32(txtCantidad.Text));
-
-            //Se inserta el producto especificando como parametro en que posicion
-            inventario.Insertar(product, Convert.ToByte(txtPosicion.Text));
-
-
-            //Se limpian las casillas
-            txtCodigo.Text = txtNombre.Text = txtPrecio.Text = txtCantidad.Text = String.Empty;
-        }
-
-        //---------------------------------------------------------------------------------------------------------------------------------------------------------
         //BUTTON BUSCAR
         private void bttonBuscar_Click(object sender, EventArgs e)
         {
@@ -98,15 +77,75 @@ namespace Inventario
         }
 
         //---------------------------------------------------------------------------------------------------------------------------------------------------------
+        //BUTTON INSERTAR
+        private void bttonInsertar_Click(object sender, EventArgs e)
+        {
+            //Se crea un objeto de la clase producto
+            Producto product = new Producto();
+
+            //Se establecen las caracteristicas del objeto
+            product.setCodigo(Convert.ToInt32(txtCodigo.Text));
+            product.setNombre(txtNombre.Text);
+            product.setPrecio(float.Parse(txtPrecio.Text));
+            product.setCantidad(Convert.ToInt32(txtCantidad.Text));
+
+            inventario.Insertar(product, Convert.ToByte(txtPosicion.Text));
+        }
+
+        //---------------------------------------------------------------------------------------------------------------------------------------------------------
+        //BUTTON AGREGAR INICIO
+        private void bttonAgregarInicio_Click(object sender, EventArgs e)
+        {
+            //Se crea un objeto de la clase producto
+            Producto product = new Producto();
+
+            //Se establecen las caracteristicas del objeto
+            product.setCodigo(Convert.ToInt32(txtCodigo.Text));
+            product.setNombre(txtNombre.Text);
+            product.setPrecio(float.Parse(txtPrecio.Text));
+            product.setCantidad(Convert.ToInt32(txtCantidad.Text));
+
+            //Se agrega el producto al inventario mediante un metodo que recibe como parametro un producto
+            inventario.agregarInicio(product);
+
+            //Se limpian las casillas
+            txtCodigo.Text = txtNombre.Text = txtPrecio.Text = txtCantidad.Text = String.Empty;
+        }
+
+        //---------------------------------------------------------------------------------------------------------------------------------------------------------
+        //BUTTON ELIMINAR PRIMERO
+        private void bttonEliminarPrimero_Click(object sender, EventArgs e)
+        {
+            inventario.eliminarPrimero();
+
+            //Se limpian las casillas
+            txtCodigo.Text = txtNombre.Text = txtPrecio.Text = txtCantidad.Text = String.Empty;
+        }
+
+        //---------------------------------------------------------------------------------------------------------------------------------------------------------
+        //BUTTON ELIMINAR ULTIMO
+        private void bttonEliminarUltimo_Click(object sender, EventArgs e)
+        {
+            inventario.eliminarUltimo();
+
+            //Se limpian las casillas
+            txtCodigo.Text = txtNombre.Text = txtPrecio.Text = txtCantidad.Text = String.Empty;
+        }
+
+        //---------------------------------------------------------------------------------------------------------------------------------------------------------
         //BUTTON REPORTE
         private void bttonReporte_Click(object sender, EventArgs e)
         {
             txtReportes.Text = inventario.Reporte();
+            txtCodigo.Text = txtNombre.Text = txtPrecio.Text = txtCantidad.Text = String.Empty;
         }
 
+        //---------------------------------------------------------------------------------------------------------------------------------------------------------
+        //BUTTON REPORTE INVERSO
         private void bttonReporteInverso_Click(object sender, EventArgs e)
         {
             txtReportes.Text = inventario.reporteInverso();
+            txtCodigo.Text = txtNombre.Text = txtPrecio.Text = txtCantidad.Text = String.Empty;
         }
     }
 }

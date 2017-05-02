@@ -32,20 +32,23 @@
             this.lblNombre = new System.Windows.Forms.Label();
             this.lblPrecio = new System.Windows.Forms.Label();
             this.lblCantidad = new System.Windows.Forms.Label();
-            this.lblPosicion = new System.Windows.Forms.Label();
             this.txtCodigo = new System.Windows.Forms.TextBox();
             this.txtNombre = new System.Windows.Forms.TextBox();
             this.txtPrecio = new System.Windows.Forms.TextBox();
             this.txtCantidad = new System.Windows.Forms.TextBox();
-            this.txtPosicion = new System.Windows.Forms.TextBox();
             this.bttonAdd = new System.Windows.Forms.Button();
             this.bttonDelete = new System.Windows.Forms.Button();
-            this.bttonInsertar = new System.Windows.Forms.Button();
             this.bttonBuscar = new System.Windows.Forms.Button();
             this.bttonReporte = new System.Windows.Forms.Button();
             this.txtReportes = new System.Windows.Forms.TextBox();
             this.lblProcuctosEnAlmacen = new System.Windows.Forms.Label();
             this.bttonReporteInverso = new System.Windows.Forms.Button();
+            this.lblPosicion = new System.Windows.Forms.Label();
+            this.txtPosicion = new System.Windows.Forms.TextBox();
+            this.bttonInsertar = new System.Windows.Forms.Button();
+            this.bttonAgregarInicio = new System.Windows.Forms.Button();
+            this.bttonEliminarPrimero = new System.Windows.Forms.Button();
+            this.bttonEliminarUltimo = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lblCodigo
@@ -88,16 +91,6 @@
             this.lblCantidad.TabIndex = 3;
             this.lblCantidad.Text = "Cantidad:";
             // 
-            // lblPosicion
-            // 
-            this.lblPosicion.AutoSize = true;
-            this.lblPosicion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPosicion.Location = new System.Drawing.Point(86, 178);
-            this.lblPosicion.Name = "lblPosicion";
-            this.lblPosicion.Size = new System.Drawing.Size(68, 16);
-            this.lblPosicion.TabIndex = 4;
-            this.lblPosicion.Text = "Posición";
-            // 
             // txtCodigo
             // 
             this.txtCodigo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -130,14 +123,6 @@
             this.txtCantidad.Size = new System.Drawing.Size(129, 21);
             this.txtCantidad.TabIndex = 3;
             // 
-            // txtPosicion
-            // 
-            this.txtPosicion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPosicion.Location = new System.Drawing.Point(89, 201);
-            this.txtPosicion.Name = "txtPosicion";
-            this.txtPosicion.Size = new System.Drawing.Size(59, 21);
-            this.txtPosicion.TabIndex = 4;
-            // 
             // bttonAdd
             // 
             this.bttonAdd.AutoSize = true;
@@ -145,7 +130,7 @@
             this.bttonAdd.Location = new System.Drawing.Point(12, 178);
             this.bttonAdd.Name = "bttonAdd";
             this.bttonAdd.Size = new System.Drawing.Size(57, 51);
-            this.bttonAdd.TabIndex = 10;
+            this.bttonAdd.TabIndex = 4;
             this.bttonAdd.Text = "+";
             this.bttonAdd.UseVisualStyleBackColor = true;
             this.bttonAdd.Click += new System.EventHandler(this.bttonAdd_Click);
@@ -154,34 +139,22 @@
             // 
             this.bttonDelete.AutoSize = true;
             this.bttonDelete.Font = new System.Drawing.Font("Consolas", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bttonDelete.Location = new System.Drawing.Point(12, 262);
+            this.bttonDelete.Location = new System.Drawing.Point(173, 178);
             this.bttonDelete.Name = "bttonDelete";
             this.bttonDelete.Size = new System.Drawing.Size(57, 51);
-            this.bttonDelete.TabIndex = 11;
+            this.bttonDelete.TabIndex = 6;
             this.bttonDelete.Text = "-";
             this.bttonDelete.UseVisualStyleBackColor = true;
             this.bttonDelete.Click += new System.EventHandler(this.bttonDelete_Click);
-            // 
-            // bttonInsertar
-            // 
-            this.bttonInsertar.AutoSize = true;
-            this.bttonInsertar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bttonInsertar.Location = new System.Drawing.Point(160, 187);
-            this.bttonInsertar.Name = "bttonInsertar";
-            this.bttonInsertar.Size = new System.Drawing.Size(70, 26);
-            this.bttonInsertar.TabIndex = 12;
-            this.bttonInsertar.Text = "Insertar";
-            this.bttonInsertar.UseVisualStyleBackColor = true;
-            this.bttonInsertar.Click += new System.EventHandler(this.bttonInsertar_Click);
             // 
             // bttonBuscar
             // 
             this.bttonBuscar.AutoSize = true;
             this.bttonBuscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bttonBuscar.Location = new System.Drawing.Point(121, 272);
+            this.bttonBuscar.Location = new System.Drawing.Point(86, 178);
             this.bttonBuscar.Name = "bttonBuscar";
-            this.bttonBuscar.Size = new System.Drawing.Size(75, 26);
-            this.bttonBuscar.TabIndex = 13;
+            this.bttonBuscar.Size = new System.Drawing.Size(67, 51);
+            this.bttonBuscar.TabIndex = 5;
             this.bttonBuscar.Text = "Buscar";
             this.bttonBuscar.UseVisualStyleBackColor = true;
             this.bttonBuscar.Click += new System.EventHandler(this.bttonBuscar_Click);
@@ -193,7 +166,7 @@
             this.bttonReporte.Location = new System.Drawing.Point(439, 385);
             this.bttonReporte.Name = "bttonReporte";
             this.bttonReporte.Size = new System.Drawing.Size(129, 26);
-            this.bttonReporte.TabIndex = 14;
+            this.bttonReporte.TabIndex = 12;
             this.bttonReporte.Text = "Reporte";
             this.bttonReporte.UseVisualStyleBackColor = true;
             this.bttonReporte.Click += new System.EventHandler(this.bttonReporte_Click);
@@ -225,16 +198,85 @@
             this.bttonReporteInverso.Location = new System.Drawing.Point(439, 420);
             this.bttonReporteInverso.Name = "bttonReporteInverso";
             this.bttonReporteInverso.Size = new System.Drawing.Size(129, 26);
-            this.bttonReporteInverso.TabIndex = 15;
+            this.bttonReporteInverso.TabIndex = 13;
             this.bttonReporteInverso.Text = "Reporte Inverso";
             this.bttonReporteInverso.UseVisualStyleBackColor = true;
             this.bttonReporteInverso.Click += new System.EventHandler(this.bttonReporteInverso_Click);
+            // 
+            // lblPosicion
+            // 
+            this.lblPosicion.AutoSize = true;
+            this.lblPosicion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPosicion.Location = new System.Drawing.Point(11, 262);
+            this.lblPosicion.Name = "lblPosicion";
+            this.lblPosicion.Size = new System.Drawing.Size(68, 16);
+            this.lblPosicion.TabIndex = 4;
+            this.lblPosicion.Text = "Posición";
+            // 
+            // txtPosicion
+            // 
+            this.txtPosicion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPosicion.Location = new System.Drawing.Point(85, 259);
+            this.txtPosicion.Name = "txtPosicion";
+            this.txtPosicion.Size = new System.Drawing.Size(59, 21);
+            this.txtPosicion.TabIndex = 7;
+            // 
+            // bttonInsertar
+            // 
+            this.bttonInsertar.AutoSize = true;
+            this.bttonInsertar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bttonInsertar.Location = new System.Drawing.Point(160, 257);
+            this.bttonInsertar.Name = "bttonInsertar";
+            this.bttonInsertar.Size = new System.Drawing.Size(70, 26);
+            this.bttonInsertar.TabIndex = 8;
+            this.bttonInsertar.Text = "Insertar";
+            this.bttonInsertar.UseVisualStyleBackColor = true;
+            this.bttonInsertar.Click += new System.EventHandler(this.bttonInsertar_Click);
+            // 
+            // bttonAgregarInicio
+            // 
+            this.bttonAgregarInicio.AutoSize = true;
+            this.bttonAgregarInicio.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
+            this.bttonAgregarInicio.Location = new System.Drawing.Point(50, 301);
+            this.bttonAgregarInicio.Name = "bttonAgregarInicio";
+            this.bttonAgregarInicio.Size = new System.Drawing.Size(132, 34);
+            this.bttonAgregarInicio.TabIndex = 9;
+            this.bttonAgregarInicio.Text = "Agregar al inicio";
+            this.bttonAgregarInicio.UseVisualStyleBackColor = true;
+            this.bttonAgregarInicio.Click += new System.EventHandler(this.bttonAgregarInicio_Click);
+            // 
+            // bttonEliminarPrimero
+            // 
+            this.bttonEliminarPrimero.AutoSize = true;
+            this.bttonEliminarPrimero.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
+            this.bttonEliminarPrimero.Location = new System.Drawing.Point(50, 358);
+            this.bttonEliminarPrimero.Name = "bttonEliminarPrimero";
+            this.bttonEliminarPrimero.Size = new System.Drawing.Size(132, 34);
+            this.bttonEliminarPrimero.TabIndex = 10;
+            this.bttonEliminarPrimero.Text = "Eliminar primero";
+            this.bttonEliminarPrimero.UseVisualStyleBackColor = true;
+            this.bttonEliminarPrimero.Click += new System.EventHandler(this.bttonEliminarPrimero_Click);
+            // 
+            // bttonEliminarUltimo
+            // 
+            this.bttonEliminarUltimo.AutoSize = true;
+            this.bttonEliminarUltimo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
+            this.bttonEliminarUltimo.Location = new System.Drawing.Point(50, 412);
+            this.bttonEliminarUltimo.Name = "bttonEliminarUltimo";
+            this.bttonEliminarUltimo.Size = new System.Drawing.Size(132, 34);
+            this.bttonEliminarUltimo.TabIndex = 11;
+            this.bttonEliminarUltimo.Text = "Eliminar ultimo";
+            this.bttonEliminarUltimo.UseVisualStyleBackColor = true;
+            this.bttonEliminarUltimo.Click += new System.EventHandler(this.bttonEliminarUltimo_Click);
             // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(592, 455);
+            this.ClientSize = new System.Drawing.Size(584, 461);
+            this.Controls.Add(this.bttonEliminarUltimo);
+            this.Controls.Add(this.bttonEliminarPrimero);
+            this.Controls.Add(this.bttonAgregarInicio);
             this.Controls.Add(this.txtReportes);
             this.Controls.Add(this.bttonReporteInverso);
             this.Controls.Add(this.bttonReporte);
@@ -266,20 +308,23 @@
         private System.Windows.Forms.Label lblNombre;
         private System.Windows.Forms.Label lblPrecio;
         private System.Windows.Forms.Label lblCantidad;
-        private System.Windows.Forms.Label lblPosicion;
         private System.Windows.Forms.TextBox txtCodigo;
         private System.Windows.Forms.TextBox txtNombre;
         private System.Windows.Forms.TextBox txtPrecio;
         private System.Windows.Forms.TextBox txtCantidad;
-        private System.Windows.Forms.TextBox txtPosicion;
         private System.Windows.Forms.Button bttonAdd;
         private System.Windows.Forms.Button bttonDelete;
-        private System.Windows.Forms.Button bttonInsertar;
         private System.Windows.Forms.Button bttonBuscar;
         private System.Windows.Forms.Button bttonReporte;
         private System.Windows.Forms.TextBox txtReportes;
         private System.Windows.Forms.Label lblProcuctosEnAlmacen;
         private System.Windows.Forms.Button bttonReporteInverso;
+        private System.Windows.Forms.Label lblPosicion;
+        private System.Windows.Forms.TextBox txtPosicion;
+        private System.Windows.Forms.Button bttonInsertar;
+        private System.Windows.Forms.Button bttonAgregarInicio;
+        private System.Windows.Forms.Button bttonEliminarPrimero;
+        private System.Windows.Forms.Button bttonEliminarUltimo;
     }
 }
 
